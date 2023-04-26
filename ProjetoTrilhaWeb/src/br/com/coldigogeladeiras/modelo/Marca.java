@@ -1,10 +1,6 @@
 package br.com.coldigogeladeiras.modelo;
 
 import java.io.Serializable;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Marca implements Serializable {
 
@@ -29,15 +25,6 @@ public class Marca implements Serializable {
 		this.nome = nome;
 	}
 
-}
-
-public List<Marca> buscar() {
-
-	String comando = "SELECT * FROM marcas";
-	List<Marca> listMarcas = new ArrayList<Marca>();
-	Marca marca = null;
-	return listMarcas;
-	
 }
 
 
