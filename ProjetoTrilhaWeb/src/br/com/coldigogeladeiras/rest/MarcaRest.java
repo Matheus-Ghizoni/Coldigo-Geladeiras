@@ -19,7 +19,7 @@ public class MarcaRest {
 	@GET
 	@Path("/buscar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response buscar() {
+	public Response buscar(){
 		
 		List<Marca> listaMarcas = new ArrayList<Marca>();
 		
