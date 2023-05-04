@@ -3,14 +3,14 @@ package br.com.coldigogeladeiras.rest;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
-import com.google.gson.Gson; //Criei uma classe para importar
+import com.google.gson.Gson;
 
 public class UtilRest {
 	
 	public Response buildResponse(Object result) {
 		
 		try {
-			String valorResposta = new Gson().toJson(result); //Foi criado um método na class Gson
+			String valorResposta = new Gson().toJson(result);
 			return Response.ok(valorResposta).build();
 		} catch (Exception ex) {
 			ex.printStackTrace();

@@ -10,10 +10,10 @@ public class Conexao {
 	public Connection abrirConexao() {
 		try {
 			String url = "jdbc:mysql://localhost/bdcoldigo?";
-			String senha = "root";
 			String usuario = "root";
+			String senha = "root";
 			Class.forName("com.mysql.cj.jdbc.Driver");		
-			conexao = DriverManager.getConnection(senha, url, usuario);		
+			conexao = DriverManager.getConnection(url, usuario, senha);		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
