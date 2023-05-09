@@ -2,6 +2,8 @@ COLDIGO = new Object();
 
 $(document).ready(function() {
 
+	COLDIGO.PATH = "/ProjetoTrilhaWeb/rest/";
+
     $("header").load("/ProjetoTrilhaWeb/pages/admin/general/header.html");
     $("footer").load("/ProjetoTrilhaWeb/pages/admin/general/footer.html");
 
