@@ -30,7 +30,7 @@ public class ProdutoRest extends UtilRest{
 			String msg = "";
 			
 			if(retorno) {
-				msg = "Produtp cadastrado com sucesso";
+				msg = "Produto cadastrado com sucesso";
 			}else {
 				msg = "Erro ao cadastrar produto";
 			}

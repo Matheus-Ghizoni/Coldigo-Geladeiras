@@ -53,9 +53,10 @@ $(document).ready(function() {
 	COLDIGO.produto.carregarMarcas();
 
 	COLDIGO.produto.cadastrar = function(){
+		
 		var produto = new Object();
 		produto.categoria = document.frmAddProduto.categoria.value;
-		produto.marcaId = documnt.frmAddProduto.marcaId.value;
+		produto.marcaId = document.frmAddProduto.marcaId.value;
 		produto.modelo = document.frmAddProduto.modelo.value;
 		produto.capacidade = document.frmAddProduto.capacidade.value;
 		produto.valor = document.frmAddProduto.valor.value;
