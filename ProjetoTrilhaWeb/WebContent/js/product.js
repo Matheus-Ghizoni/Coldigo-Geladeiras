@@ -91,7 +91,8 @@ $(document).ready(function() {
 			success: function(dados){
 				
 				dados = JSON.parse(dados);
-				console.log(dados);
+				
+				$("#listaProdutos").html(COLDIGO.produto.exibir(dados));
 				
 			},
 			error: function(info){
@@ -99,6 +100,20 @@ $(document).ready(function() {
 			}
 		});
 		
+	};
+	
+	COLDIGO.produto.exibir = function(listaDeProdutos) {
+		
+		var tabela = "<table>" +
+		"<tr>" +
+		"<th>Categoria</th>" +
+		"<th>Marca</th>" +
+		"<th>Modelo</th>" +
+		"<th>Cap.(l)</th>" +
+		"<th>Valor</th>" +
+		"<th class='acoes'>Ações</th>" +
+		"</tr>";
+	
 	};
 	
 	COLDIGO.produto.buscar();
