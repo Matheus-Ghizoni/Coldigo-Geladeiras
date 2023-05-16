@@ -88,7 +88,7 @@ $(document).ready(function() {
 			type: "GET",
 			url: COLDIGO.PATH + "produto/buscar",
 			data: "valorBusca="+valorBusca,
-			sucess: function(dados){
+			success: function(dados){
 				
 				dados = JSON.parse(dados);
 				console.log(dados);
