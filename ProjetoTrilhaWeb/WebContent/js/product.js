@@ -124,8 +124,8 @@ $(document).ready(function() {
 						"<td>"+listaDeProdutos[i].capacidade+"</td>" +
 						"<td>R$ "+COLDIGO.formatarDinheiro(listaDeProdutos[i].valor)+"</td>" +
 						"<td>" +
-							"<a><img src='../../imgs/edit.png' alt='Editar registro'></a> " +
-							"<a><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
+							"<a><img src='../../imgs/editar.svg' alt='Editar registro'></a> " +
+							"<a><img src='../../imgs/lixeira.svg' alt='Excluir registro'></a>" +
 						"</td>"+
 						"</tr>"
 			}
