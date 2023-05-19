@@ -59,7 +59,7 @@ public class ProdutoRest extends UtilRest{
 	public Response buscarPorNome(@QueryParam("valorBusca") String nome) {
 		
 		try {
-			
+
 			List<JsonObject> listaProdutos = new ArrayList<JsonObject>();
 			
 			Conexao conec = new Conexao();

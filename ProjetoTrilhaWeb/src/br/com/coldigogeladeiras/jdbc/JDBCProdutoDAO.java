@@ -50,7 +50,15 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 	}
 
 	public List<JsonObject> buscarPorNome(String nome) {
-		String comando = "SELECT produtos.*, marcas.nome as marca FROM produtos INNER JOIN marcas ON produtos.marcas_id = marcas.id ORDER BY categoria ASC, marcas.nome ASC, modelo ASC";
+		String comando = "SELECT produtos.*, marcas.nome as marca FROM produtos INNER JOIN marcas ON produtos.marcas_id = marcas.id ";
+		
+		if (!nome.equals("")) {
+			
+			comando += "WHERE modelo LIKE '%" + nome + "%'"; 
+		
+		}
+		
+		comando += "ORDER BY categoria ASC, marcas.nome ASC, modelo ASC";
 
 		List<JsonObject> listaProdutos = new ArrayList<JsonObject>();
 		JsonObject produto = null;

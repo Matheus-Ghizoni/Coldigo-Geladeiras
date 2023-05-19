@@ -82,7 +82,7 @@ $(document).ready(function() {
 	}
 	COLDIGO.produto.buscar = function(){
 		
-		var valorBusca = $("campoBuscaProduto").val();
+		var valorBusca = $("#campoBuscaProduto").val();
 		
 		$.ajax({
 			type: "GET",
@@ -91,7 +91,7 @@ $(document).ready(function() {
 			success: function(dados){
 				
 				dados = JSON.parse(dados);
-				
+				console.log(dados);
 				$("#listaProdutos").html(COLDIGO.produto.exibir(dados));
 				
 			},
