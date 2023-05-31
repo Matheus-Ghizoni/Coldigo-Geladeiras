@@ -64,7 +64,6 @@ $(document).ready(function() {
 		if ((produto.categoria == "") || (produto.marcaId == "") || (produto.modelo == "") || (produto.capacidade == "") || (produto.valor == "")) {
 			COLDIGO.exibirAviso("Preencha todos os campos!");
 		} else {
-
 			$.ajax({
 				type: "POST",
 				url: COLDIGO.PATH + "produto/inserir",

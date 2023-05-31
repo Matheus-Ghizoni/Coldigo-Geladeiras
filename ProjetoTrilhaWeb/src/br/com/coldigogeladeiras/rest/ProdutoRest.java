@@ -82,7 +82,7 @@ public class ProdutoRest extends UtilRest {
 
 	@DELETE
 	@Path("/excluir/{id}")
-	@Consumes("application/")
+	@Consumes("application/*")
 	public Response excluir(@PathParam("id") int id) {
 
 		try {

@@ -23,7 +23,6 @@ public class MarcaRest extends UtilRest {
 
 		try {
 			
-			System.out.println("Cheguei no rest");
 			List<Marca> listaMarcas = new ArrayList<Marca>();
 
 			Conexao conec = new Conexao();
