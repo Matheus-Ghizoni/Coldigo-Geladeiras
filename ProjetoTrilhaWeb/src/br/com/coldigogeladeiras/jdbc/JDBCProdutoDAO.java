@@ -51,7 +51,7 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 
 	public List<JsonObject> buscarPorNome(String nome) {
 		String comando = "SELECT produtos.*, marcas.nome as marca FROM produtos INNER JOIN marcas ON produtos.marcas_id = marcas.id ";
-		
+		System.out.print("Busca");
 		if (!nome.equals("")) {
 			
 			comando += "WHERE modelo LIKE '%" + nome + "%'"; 
@@ -99,6 +99,20 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 		}
 
 		return listaProdutos;
+	}
+	
+	public boolean deletar(int id) {
+		String comando = "DELETE FROM produtos WHERE id = ?";
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setInt(1, id);
+			p.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 }
