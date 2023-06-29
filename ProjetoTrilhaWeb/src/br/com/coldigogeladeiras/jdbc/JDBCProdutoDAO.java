@@ -52,11 +52,11 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 	public List<JsonObject> buscarPorNome(String nome) {
 		String comando = "SELECT produtos.*, marcas.nome as marca FROM produtos INNER JOIN marcas ON produtos.marcas_id = marcas.id ";
 		if (!nome.equals("")) {
-			
-			comando += "WHERE modelo LIKE '%" + nome + "%'"; 
-		
+
+			comando += "WHERE modelo LIKE '%" + nome + "%'";
+
 		}
-		
+
 		comando += "ORDER BY categoria ASC, marcas.nome ASC, modelo ASC";
 
 		List<JsonObject> listaProdutos = new ArrayList<JsonObject>();
@@ -99,7 +99,7 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 
 		return listaProdutos;
 	}
-	
+
 	public boolean deletar(int id) {
 		String comando = "DELETE FROM produtos WHERE id = ?";
 		PreparedStatement p;
@@ -114,7 +114,7 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 		return true;
 	}
 
-	public Produto buscarPorId(int id){
+	public Produto buscarPorId(int id) {
 		String comando = "SELECT * FROM produtos WHERE produtos.id = ?";
 		Produto produto = new Produto();
 		try {
@@ -128,7 +128,7 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 				int capacidade = rs.getInt("capacidade");
 				float valor = rs.getFloat("valor");
 				int marcaId = rs.getInt("marcas_id");
-				
+
 				System.out.println(categoria);
 
 				produto.setId(id);
@@ -143,6 +143,27 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 			e.printStackTrace();
 		}
 		return produto;
+	}
+
+	public boolean alterar(Produto produto) {
+
+		String comando = "UPDATE produtos " + "SET categoria=?, modelo=?, capacidade=?, valor=?, marcas_id=?"
+				+ " WHERE id=?";
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setString(1, produto.getCategoria());
+			p.setString(2, produto.getModelo());
+			p.setInt(3, produto.getCapacidade());
+			p.setFloat(4, produto.getValor());
+			p.setInt(5, produto.getMarcaId());
+			p.setInt(6, produto.getId());
+			p.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 }
