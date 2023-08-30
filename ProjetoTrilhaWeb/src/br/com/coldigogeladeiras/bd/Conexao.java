@@ -13,7 +13,7 @@ public class Conexao {
 			String usuario = "root";
 			String senha = "root";
 			Class.forName("com.mysql.cj.jdbc.Driver");		
-			conexao = DriverManager.getConnection(url, usuario, senha);		
+			conexao = DriverManager.getConnection(url, usuario, senha);	
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

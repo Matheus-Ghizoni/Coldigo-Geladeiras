@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../../js/marks.js"></script>
+<title>Marcas</title>
+</head>
+<body>
+	<h2>Registro de Marcas</h2>
+	<form name="frmAddMarca" id="addMarca" class="frmInserir">
+		<fieldset>
+			<legend>Nova Marca</legend>
+			<table>
+				<tr>
+					<th>Nome da Marca</th>
+					<td><input type="text" name="nome"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="button" onclick="COLDIGO.marca.cadastrar()">Cadastrar</button>
+						<button type="reset">Limpar</button>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+	
+	<form id="filtraProduto" class="frmFiltrar">
+		<fieldset>
+			<legend>Filtrar</legend>
+			<input type="text" name="txtbusca" id="campoBuscaMarca"
+				placeholder="Pesquise pelo nome">
+			<button type="button" onclick="COLDIGO.marca.buscar()">Buscar</button>
+		</fieldset>
+	</form>
+	<div id="listaMarcas" class="listaRegistros"></div>
+	
+</body>
+</html>

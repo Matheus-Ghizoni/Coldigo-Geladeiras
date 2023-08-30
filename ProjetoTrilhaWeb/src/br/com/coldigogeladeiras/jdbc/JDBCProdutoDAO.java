@@ -129,8 +129,6 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 				float valor = rs.getFloat("valor");
 				int marcaId = rs.getInt("marcas_id");
 
-				System.out.println(categoria);
-
 				produto.setId(id);
 				produto.setCategoria(categoria);
 				produto.setMarcaId(marcaId);
@@ -163,6 +161,43 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 			e.printStackTrace();
 			return false;
 		}
+		return true;
+	}
+	
+	public boolean buscarPorId2(int id) {
+		String comando = "SELECT * FROM produtos WHERE marcas_id = ?";
+		Produto produto = new Produto();
+		try {
+			PreparedStatement p = this.conexao.prepareStatement(comando);
+			p.setInt(1, id);
+			ResultSet rs = p.executeQuery();
+			while (rs.next()) {
+				produto.setMarcaId(id);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
+		
+	}
+	
+	public boolean confereProduto(Produto produto) {
+		String comando = "select * from produtos where categoria = '"+produto.getCategoria()+"' AND modelo = '"+produto.getModelo()+"' AND capacidade = '"+produto.getCapacidade()+"' AND marcas_id = '"+produto.getMarcaId()+"'";
+		try {
+			PreparedStatement p = this.conexao.prepareStatement(comando);
+			ResultSet rs = p.executeQuery();
+			while (rs.next()) {
+				return false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return true;
+		}
+
 		return true;
 	}
 
